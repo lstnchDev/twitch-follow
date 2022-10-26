@@ -1,11 +1,17 @@
 import Button from "./UI/Button"
 import styles from "./css/mainContent.module.scss"
-import { COLOR_MAIN } from "../consts/stylesConsts"
+import { useState } from "react"
+import Guest from "./Guest"
 
 const MainContent = ()=>{
+    const [autorState, setAutor] = useState(false)
+
+   
     return (
-        <div className={styles.header}>
-            <Button title="Login" color="white" bg={COLOR_MAIN}/>
+        <div className={styles.mainContent}>
+            <div className={styles.wrap_mainContent}>
+                <Guest />
+            </div>
         </div>
     )
 }

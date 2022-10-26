@@ -1,0 +1,9 @@
+.mainContent{
+    background-color: var(--colorMain);
+    .wrap_mainContent{
+        max-width: var(--wrapWidth);
+        margin: 0 auto;
+        text-align: center;
+        padding: 250px;
+    }
+}

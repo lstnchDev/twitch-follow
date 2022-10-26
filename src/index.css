@@ -1,3 +1,13 @@
+:root{
+  --colorMain: #0E0E10;
+  --colorSecondary: #18181B;
+  --colorButton: #772CE8;
+  --colorHover: #6441a5;
+  --wrapWidth: 1200px;
+}
+.wrap{
+  
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

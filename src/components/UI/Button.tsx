@@ -2,15 +2,13 @@ import styles from './css/button.module.scss'
 
 interface IButton{
     title: string,
-    color: string,
-    bg: string
+    onClick: any,
 }
 
-const Button = ({title, color, bg}: IButton)=>{
+const Button = ({title, onClick}: IButton)=>{
     return (
-        <button 
-            className={styles.button}
-            style={{background: bg, color: color}}>
+        <button onClick={onClick}
+            className={styles.button}>
             {title}
         </button>   
      )
