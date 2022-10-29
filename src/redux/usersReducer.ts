@@ -1,10 +1,11 @@
+import { act } from '@testing-library/react';
 import { GET_USER } from './types';
 
-export const userReducer = (state = [], action: any)=>{
+export const usersReducer = (state = [], action: any)=>{
     switch(action.type){
         case GET_USER:
-            const user = action.data
-            return user
+            const users = action.data
+            return users
         default: return state
     }
 

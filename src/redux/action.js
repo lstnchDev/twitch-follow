@@ -1,5 +1,5 @@
 import { AnyAction } from '@reduxjs/toolkit';
-import { LOAD_FOLLOW, LOAD_USER } from "./types"
+import { GET_USER, LOADER_OFF, LOADER_ON, LOAD_FOLLOW, LOAD_USER } from "./types"
 
 
 const CLIENT_ID = "0zuarw2s00p8z3hy0kxcr3q5ufc7gm"
@@ -19,11 +19,24 @@ export function loadUser(token_id){
             .then(res=>res.json())
             .then(result=> {
                 console.log(result.data)
+                localStorage.setItem('user-id', result.data[0].id)
                 dispatch({
                     type: LOAD_USER,
                     data: result.data[0]
                 })
             })
+    }
+}
+
+export function loadingOn(){
+    return {
+        type: LOADER_ON
+    }
+}
+
+export function loadingOff(){
+    return {
+        type: LOADER_OFF
     }
 }
 
@@ -55,9 +68,11 @@ export function getUsers(user_id, token_id){
         })
             .then(res=>res.json())
             .then(result=> {
+                console.log(result.data[0])
+
                 dispatch({
-                    type: LOAD_USER,
-                    data: result.data
+                    type: GET_USER,
+                    data: result.data[0]
                 })
             })
     }

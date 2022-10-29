@@ -7,11 +7,12 @@ import { userReducer } from './redux/userReducer';
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux';
 import { followReducer } from './redux/followReducer';
+import { usersReducer } from './redux/usersReducer';
 
 const reducer = combineReducers({
   user: userReducer,
   follow: followReducer,
-  users: userReducer,
+  users: usersReducer,
 })
 
 const store = configureStore({reducer})

@@ -15,17 +15,23 @@ const MainContent = ()=>{
     const token_id = localStorage.getItem('token-id')
     const user_id = localStorage.getItem('user-id')
 
+
+
     useEffect(()=>{
-        if(user_id?.length !== 0){
+        if(user_id !== null){
+            console.log(user_id)
             setAutor(true)
             dispatch(loadFollow(user_id, token_id))
         }
-    }, [])
+    }, [dispatch, token_id, user_id])
     
     const userFollow = useSelector(state=>{
         return state.follow
     })
-    const mainContent = autorState ? userFollow.map((follow)=><FollowContent user_id={follow.to_id} login={follow.to_login}/>) : <Guest />
+
+    //тут проблема ёпт
+    // const mainContent = autorState ? userFollow.map((follow)=><FollowContent user_id={follow.to_id} login={follow.to_login}/>) : <Guest />
+    const mainContent = autorState ? <FollowContent user_id='90901415' login='cobler82'/> : <Guest />
 
     userFollow.map((follow)=> console.log(follow.to_id, follow.to_login))
     return (

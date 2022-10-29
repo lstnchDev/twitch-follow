@@ -1,6 +1,6 @@
 
-import {connect, useDispatch, useSelector} from 'react-redux'
-import { getUsers, loadUser } from '../../redux/action'
+import { useDispatch, useSelector} from 'react-redux'
+import { getUsers } from '../../redux/action'
 import { useEffect } from 'react';
 
 // interface IFollows{
@@ -13,14 +13,19 @@ const FollowContent = (props)=>{
     const token_id = localStorage.getItem('token-id')
 
     useEffect(()=>{
+
         dispatch(getUsers(props.user_id, token_id))
     }, [])
-    const user = useSelector(state=>{
-        return state.user
+    const userFollow = useSelector(state=>{
+        console.log(state.users)
+
+        return state.users[0]
     })
-    console.log(user)
     return(
-        <li>{props.user_id}-{props.login}</li>
+        <li>
+            {/* <img src={userFollow.profile_image_url} alt="follow"/> */}
+            <h4>{props.login}</h4>   
+        </li>
     )
 }
 

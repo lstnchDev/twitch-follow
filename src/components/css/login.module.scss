@@ -1,0 +1,14 @@
+.profile{
+    display: flex;
+    justify-content: space-around;
+
+    img{
+        height: 45px;
+        border-radius: 20px;
+    }
+    h3{
+        margin: 0 10px;
+        align-self: center;
+
+    }
+}
