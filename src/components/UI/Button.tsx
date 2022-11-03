@@ -2,7 +2,7 @@ import styles from './css/button.module.scss'
 
 interface IButton{
     title: string,
-    onClick: any,
+    onClick: React.MouseEventHandler,
 }
 
 const Button = ({title, onClick}: IButton)=>{

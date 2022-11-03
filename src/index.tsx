@@ -8,11 +8,13 @@ import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux';
 import { followReducer } from './redux/followReducer';
 import { usersReducer } from './redux/usersReducer';
+import { loadingReducer } from './redux/loadingReducer';
 
 const reducer = combineReducers({
   user: userReducer,
   follow: followReducer,
   users: usersReducer,
+  loading: loadingReducer
 })
 
 const store = configureStore({reducer})

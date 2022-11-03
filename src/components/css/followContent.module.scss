@@ -1,0 +1,28 @@
+.follow_item{
+    max-width: calc(300px - 20px);
+    a{
+        text-decoration: none;
+    }
+    img{
+        cursor: pointer;
+        &:hover{
+            transition: 0.4s ;
+            box-shadow: -10px 10px 2px 2px var(--colorHover);
+        }
+    }
+    h4{
+        color: white;
+        cursor: pointer;
+
+        &:hover{
+            color: var(--colorHover);
+        }
+    }
+    .follow_type{
+        color: var(--colorViewer);
+    }
+    .follow_title{
+        color: white;
+    }
+  
+}

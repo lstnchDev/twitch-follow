@@ -10,7 +10,7 @@ import Login from "./Login"
 const CLIENT_ID = "0zuarw2s00p8z3hy0kxcr3q5ufc7gm"
 const URL_REDIRECT = "http://localhost:3000"
 
-const AUTHO_LINK = `https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=${CLIENT_ID}&redirect_uri=${URL_REDIRECT}&scope=channel%3Amanage%3Apolls+channel%3Aread%3Apolls&state=c3ab8aa609ea11e793ae92361f002671`
+const AUTHO_LINK = `https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=${CLIENT_ID}&redirect_uri=${URL_REDIRECT}&scope=channel%3Amanage%3Apolls+channel%3Aread%3Apolls+user:read:follows&state=c3ab8aa609ea11e793ae92361f002671`
 
 const Header = ()=>{
     const dispatch = useDispatch()
@@ -20,17 +20,28 @@ const Header = ()=>{
         profile_image_url: 'never'
     })
     const [loginState, setLogin] = useState(false)
+    console.log(document.location.hash != '')
+
     const loginHandler = ()=>{
-        if (document.location.hash && document.location.hash != '') {
+        console.log('loginHandler')
+
+        if (document.location.hash != '') {
             let parsedHash = new URLSearchParams(window.location.hash.slice(1))
-            console.log(123)
+            console.log(parsedHash.get('access_token'))
+
              if(parsedHash.get('access_token')){
+                console.log(parsedHash.get('access_token'))
                  const token_id = parsedHash.get('access_token')
                  localStorage.setItem('token-id', `${token_id}`)
                 }
              }
          }
-         
+      
+    const logoutHandler = ()=>{
+        localStorage.removeItem('token-id')
+        localStorage.removeItem('user-id')
+        setLogin(false)
+    }
        
     const tokenStorage = localStorage.getItem('token-id')
     const userId = localStorage.getItem('user-id')
@@ -53,7 +64,7 @@ const Header = ()=>{
     })
 
 
-    const loginItem = loginState ? <Login name={user.login} img={user.profile_image_url}/>  : <Button onClick={loginHandler} title="Login"/>
+    const loginItem = loginState ? <Login onLogoutHandler={logoutHandler} name={user.login} img={user.profile_image_url}/>  : <Button onClick={loginHandler} title="Login"/>
     const [location] = useSearchParams()
     // const loginHandler = async ()=>{
     //      fetch('https://id.twitch.tv/oauth2/authorize?response_type=code&client_id=0zuarw2s00p8z3hy0kxcr3q5ufc7gm&redirect_uri=http://localhost:3000&scope=channel%3Amanage%3Apolls+channel%3Aread%3Apolls&state=c3ab8aa609ea11e793ae92361f002671',{

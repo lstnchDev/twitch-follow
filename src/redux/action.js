@@ -1,4 +1,3 @@
-import { AnyAction } from '@reduxjs/toolkit';
 import { GET_USER, LOADER_OFF, LOADER_ON, LOAD_FOLLOW, LOAD_USER } from "./types"
 
 
@@ -29,12 +28,14 @@ export function loadUser(token_id){
 }
 
 export function loadingOn(){
+    console.log('loadingOn')
     return {
         type: LOADER_ON
     }
 }
 
 export function loadingOff(){
+    console.log('loadingOn')
     return {
         type: LOADER_OFF
     }
@@ -42,14 +43,21 @@ export function loadingOff(){
 
 export function loadFollow(user_id, token_id){
     return async dispatch =>{
-        fetch(`https://api.twitch.tv/helix/users/follows?from_id=${user_id}`, {
+        dispatch(loadingOn())
+        console.log('loadingOff')
+
+        // fetch(`https://api.twitch.tv/helix/users/follows?from_id=${user_id}`, {
+
+        fetch(`https://api.twitch.tv/helix/streams/followed?user_id=${user_id}`, {
             headers: {
-                'client-id': CLIENT_ID,
-                'authorization': `Bearer ${token_id}`
+                'Authorization': `Bearer ${token_id}`,
+                'Client-Id': CLIENT_ID,
             }
         })
         .then(res=>res.json())
         .then(result=>{
+            dispatch(loadingOff())
+            console.log('loadingOff')
             dispatch({
                 type: LOAD_FOLLOW,
                 data: result.data
@@ -59,6 +67,8 @@ export function loadFollow(user_id, token_id){
 }
 
 export function getUsers(user_id, token_id){
+    console.log('getUsers')
+
     return async dispatch =>{
         fetch(`https://api.twitch.tv/helix/users?id=${user_id}`, {
             headers: {
@@ -68,8 +78,6 @@ export function getUsers(user_id, token_id){
         })
             .then(res=>res.json())
             .then(result=> {
-                console.log(result.data[0])
-
                 dispatch({
                     type: GET_USER,
                     data: result.data[0]

@@ -2,8 +2,17 @@
     background-color: var(--colorMain);
     .wrap_mainContent{
         max-width: var(--wrapWidth);
-        margin: 0 auto;
         text-align: center;
         padding: 250px;
+    }
+    ul{
+        display: flex;
+        list-style-type: none;
+        flex-wrap: wrap;
+        gap: 50px;
+        padding: 0;
+        justify-content: center;
+
+     
     }
 }
