@@ -9,6 +9,8 @@ const Oauth2 = ()=>{
     const dispatch = useAppDispatch()
     const onSuccess = response => {
       const dateCookie = new Date(Date.now())
+      console.log(dateCookie)
+
       dateCookie.setDate(dateCookie.getDate() + 6)
         setCookie(auth, response.access_token, {
           expires: dateCookie
@@ -19,6 +21,7 @@ const Oauth2 = ()=>{
     const onFailure = response => console.log(response);
     
     const setCookie = (name, value, options = {})=>{
+      console.log(123)
         options = {
             path: 'https://lstnchdev.github.io/twitch-follow/',
             ...options
@@ -46,13 +49,14 @@ const Oauth2 = ()=>{
             id="auth-code-login-btn"
             authorizationUrl={authorizationUrl}
             clientId={clientId}
-            redirectUri={redirectUri}
+            redirectUri='localhost:3000/twitch-follow/'
             responseType="token"
             scope={scope}
             state={state}
             buttonText="Login"
             className={styles.authBtn}
             onSuccess={onSuccess}
+            onRequest={onFailure}
             onFailure={onFailure}
       />
     )

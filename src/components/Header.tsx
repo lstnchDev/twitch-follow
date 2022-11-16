@@ -40,7 +40,7 @@ const Header: FC = ()=>{
     return (
         <div className={styles.header}>
             <div className={styles.header_wrapper}>
-                <h2><Link to='/'>TWITCH FOLLOW INFO</Link></h2>
+                <h2><Link to='twitch-follow'>TWITCH FOLLOW INFO</Link></h2>
                     {loginItem}
             </div>
         </div>

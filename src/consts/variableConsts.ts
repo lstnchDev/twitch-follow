@@ -1,5 +1,5 @@
 export const clientId = "0zuarw2s00p8z3hy0kxcr3q5ufc7gm"
-export const redirectUri = "https://lstnchdev.github.io/twitch-follow/"
+export const redirectUri = "http://localhost:3000/twitch-follow/"
 export const authorizationUrl = "https://id.twitch.tv/oauth2/authorize"
 
 export const scope = "channel%3Amanage%3Apolls+channel%3Aread%3Apolls+user:read:follows"
