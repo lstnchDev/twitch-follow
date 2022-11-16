@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/twitch-follow/static/css/main.b4aa36b8.css",
-    "main.js": "/twitch-follow/static/js/main.f7d56cf2.js",
+    "main.js": "/twitch-follow/static/js/main.6ea9e752.js",
     "static/media/image-not-found.jpg": "/twitch-follow/static/media/image-not-found.1668c579705e7d36ceab.jpg",
     "index.html": "/twitch-follow/index.html",
     "main.b4aa36b8.css.map": "/twitch-follow/static/css/main.b4aa36b8.css.map",
-    "main.f7d56cf2.js.map": "/twitch-follow/static/js/main.f7d56cf2.js.map"
+    "main.6ea9e752.js.map": "/twitch-follow/static/js/main.6ea9e752.js.map"
   },
   "entrypoints": [
     "static/css/main.b4aa36b8.css",
-    "static/js/main.f7d56cf2.js"
+    "static/js/main.6ea9e752.js"
   ]
 }
