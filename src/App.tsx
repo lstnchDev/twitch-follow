@@ -7,7 +7,7 @@ function App() {
     <div>
       <Header />
       <Routes>
-        <Route path="/" element={<MainContent />}/>
+        <Route path="/twitch-follow" element={<MainContent />}/>
         <Route path="*" element={<div>
           <h1>Ничего не найдено</h1>
         </div>}/>
