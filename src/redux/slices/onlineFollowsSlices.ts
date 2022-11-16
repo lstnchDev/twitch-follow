@@ -29,10 +29,8 @@ export const fetchOnlineFollows = createAsyncThunk('onlineFollows/fetchOnlineFol
                 'Client-Id': CLIENT_ID,
             }
         })
-    console.log(response.data.data)
     return response.data.data as OnlineFollowsItem[]
 })
-
 
 
 const initialState: IOnlineFollows = {

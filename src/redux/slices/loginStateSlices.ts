@@ -16,7 +16,6 @@ interface ILoginState{
 }
 
 export const fetchLogin = createAsyncThunk('getLogin/fetchLogin', async(token_id: string)=>{
-    console.log(token_id)
 
     const response = await axios.get(
         `https://api.twitch.tv/helix/users`,{
@@ -25,7 +24,6 @@ export const fetchLogin = createAsyncThunk('getLogin/fetchLogin', async(token_id
                 'Client-Id': CLIENT_ID,
             }
         })
-    console.log(response.data.data[0])
     return response.data.data[0] as LoginInfo
 })
 
