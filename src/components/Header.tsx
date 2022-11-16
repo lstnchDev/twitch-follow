@@ -6,6 +6,7 @@ import { fetchLogin, getLoginState } from "../redux/slices/loginStateSlices"
 import { RootState, useAppDispatch } from "../redux/store/store"
 import Oauth2 from "./auth/Oauth2"
 import  {getCookie}  from "../tools/getCookie"
+import { Link } from 'react-router-dom'
 
 const Header: FC = ()=>{
 
@@ -39,7 +40,7 @@ const Header: FC = ()=>{
     return (
         <div className={styles.header}>
             <div className={styles.header_wrapper}>
-                <h2>TWITCH FOLLOW INFO</h2>
+                <h2><Link to='/'>TWITCH FOLLOW INFO</Link></h2>
                     {loginItem}
             </div>
         </div>
