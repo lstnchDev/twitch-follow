@@ -8,6 +8,7 @@ const CLIENT_ID = "0zuarw2s00p8z3hy0kxcr3q5ufc7gm"
 type ImgInfo = {
     id: string,
     profile_image_url: string,
+
 }
 
 interface IImgFollow{

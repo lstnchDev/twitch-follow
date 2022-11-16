@@ -14,7 +14,7 @@ const Login = ({name, img, onLogoutHandler}: ILogin)=>{
             <h3>{name}</h3>
             <img src={img} alt="login" />
         </a>
-            <Button onClick={onLogoutHandler} title='Logout' />
+            <Button customClass={false} onClick={onLogoutHandler} title='Logout' nameClass='sadsa'/>
        </div>
     )
 }
