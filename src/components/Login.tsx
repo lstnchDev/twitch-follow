@@ -10,9 +10,11 @@ interface ILogin{
 const Login = ({name, img, onLogoutHandler}: ILogin)=>{
     return (
        <div className={styles.profile}>
+        <a href={`https://www.twitch.tv/${name}`} target="_blank" rel="noreferrer">
             <h3>{name}</h3>
             <img src={img} alt="login" />
-            <Button onClick={onLogoutHandler} title='Logout'/>
+        </a>
+            <Button onClick={onLogoutHandler} title='Logout' />
        </div>
     )
 }

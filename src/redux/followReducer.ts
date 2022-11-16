@@ -1,6 +1,7 @@
 import { AnyAction } from '@reduxjs/toolkit';
 import { type } from 'os';
-import { LOAD_FOLLOW } from './types';
+import { useSelector } from 'react-redux';
+import { LOAD_ON_FOLLOW } from './types';
 
 interface IFollowOnline{
     id: number,
@@ -16,11 +17,8 @@ const initialState = {
 let usersOnline: IFollowOnline[] = []
 export const followReducer = (state = initialState, action: AnyAction)=>{
     switch(action.type){
-        case LOAD_FOLLOW:
+        case LOAD_ON_FOLLOW:
             const followData = action.data
-            console.log(followData)
-            const width = 200
-            const height = 200
 
             usersOnline.push({
                 id: followData.id,
@@ -28,7 +26,6 @@ export const followReducer = (state = initialState, action: AnyAction)=>{
                 img: followData.thumbnail_url,
                 type: followData.type
             })
-            console.log(usersOnline)
 
             return {
                 followData         

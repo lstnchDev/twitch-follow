@@ -1,6 +1,9 @@
 .header{
     color: white;
     background-color: var(--colorSecondary);
+    position: fixed;
+    top: 0;
+    width: 100%;
     .header_wrapper{
         max-width: var(--wrapWidth);
         display: flex;
@@ -12,6 +15,12 @@
         color: white;
         margin: 0;
         align-self: center;
+    }
+    h2{
+        padding-left: 20px;
+        @media screen and (max-width: 580px){
+            font-size: 1.2rem;
+        }
     }
     
 }

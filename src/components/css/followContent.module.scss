@@ -1,19 +1,45 @@
 .follow_item{
     max-width: calc(300px - 20px);
+    .follows{
+        border: 4px solid var(--colorSecondary);
+        padding: 12px;
+        height: 450px;
+      
+    }
     a{
         text-decoration: none;
     }
+    
     img{
         cursor: pointer;
+        max-width: 100%;
         &:hover{
-            transition: 0.4s ;
+            transition: 0.4s;
             box-shadow: -10px 10px 2px 2px var(--colorHover);
         }
+        
     }
+
     h4{
         color: white;
         cursor: pointer;
 
+        &:hover{
+            color: var(--colorHover);
+        }
+    }
+    h5{
+        color: var(--colorButton);
+        cursor: pointer;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -moz-box;
+        display: -webkit-box;
+        line-clamp: 2;
+        box-orient: vertical;
+        -moz-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
         &:hover{
             color: var(--colorHover);
         }
@@ -24,5 +50,16 @@
     .follow_title{
         color: white;
     }
-  
+    .followBtn{
+        cursor: pointer;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1rem;
+        background-color: gray;
+        color: white;
+        font-weight: 600;
+        &:hover{
+            background-color: var(--colorHover);
+        }
+      }
 }

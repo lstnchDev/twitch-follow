@@ -1,6 +1,5 @@
-
-.buttonComp {
-	cursor: pointer;
+.authBtn{
+    cursor: pointer;
 	border: none;
 	padding: 10px 20px;
 	font-size: 1rem;
@@ -10,5 +9,4 @@
     &:hover{
         background-color: var(--colorHover);
     }
-
 }

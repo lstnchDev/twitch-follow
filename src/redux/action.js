@@ -1,4 +1,5 @@
-import { GET_USER, LOADER_OFF, LOADER_ON, LOAD_FOLLOW, LOAD_USER } from "./types"
+import axios from "axios"
+import { GET_USER, LOADER_OFF, LOADER_ON, LOAD_ALL_FOLLOW, LOAD_ON_FOLLOW, LOAD_USER } from "./types"
 
 
 const CLIENT_ID = "0zuarw2s00p8z3hy0kxcr3q5ufc7gm"
@@ -17,7 +18,6 @@ export function loadUser(token_id){
         })
             .then(res=>res.json())
             .then(result=> {
-                console.log(result.data)
                 localStorage.setItem('user-id', result.data[0].id)
                 dispatch({
                     type: LOAD_USER,
@@ -28,14 +28,12 @@ export function loadUser(token_id){
 }
 
 export function loadingOn(){
-    console.log('loadingOn')
     return {
         type: LOADER_ON
     }
 }
 
 export function loadingOff(){
-    console.log('loadingOn')
     return {
         type: LOADER_OFF
     }
@@ -44,32 +42,43 @@ export function loadingOff(){
 export function loadFollow(user_id, token_id){
     return async dispatch =>{
         dispatch(loadingOn())
-        console.log('loadingOff')
 
         // fetch(`https://api.twitch.tv/helix/users/follows?from_id=${user_id}`, {
 
-        fetch(`https://api.twitch.tv/helix/streams/followed?user_id=${user_id}`, {
+        axios.get(`https://api.twitch.tv/helix/streams/followed?user_id=${user_id}`,{
             headers: {
                 'Authorization': `Bearer ${token_id}`,
                 'Client-Id': CLIENT_ID,
             }
         })
-        .then(res=>res.json())
-        .then(result=>{
+        .then((res)=>{
             dispatch(loadingOff())
-            console.log('loadingOff')
             dispatch({
-                type: LOAD_FOLLOW,
-                data: result.data
+                type: LOAD_ON_FOLLOW,
+                data: res.data.data
             })
         })
+        // fetch(`https://api.twitch.tv/helix/streams/followed?user_id=${user_id}`, {
+        //     headers: {
+        //         'Authorization': `Bearer ${token_id}`,
+        //         'Client-Id': CLIENT_ID,
+        //     }
+        // })
+        // .then(res=>res.json())
+        // .then(result=>{
+        //     dispatch(loadingOff())
+        //     dispatch({
+        //         type: LOAD_ON_FOLLOW,
+        //         data: result.data
+        //     })
+        // })
     }
 }
 
 export function getUsers(user_id, token_id){
-    console.log('getUsers')
 
     return async dispatch =>{
+
         fetch(`https://api.twitch.tv/helix/users?id=${user_id}`, {
             headers: {
                 'client-id': CLIENT_ID,
@@ -84,4 +93,25 @@ export function getUsers(user_id, token_id){
                 })
             })
     }
+}
+
+export function getAllUsers(user_id, token_id){
+    return async dispatch =>{
+        dispatch(loadingOn())
+        fetch(`https://api.twitch.tv/helix/users/follows?first=100&from_id=${user_id}`, {
+            headers: {
+                'client-id': CLIENT_ID,
+                'authorization': `Bearer ${token_id}`
+            }
+        })
+            .then(res=>res.json())
+            .then(result=> {
+                dispatch(loadingOff())
+                dispatch({
+                    type: LOAD_ALL_FOLLOW,
+                    data: result.data
+                })
+            })
+    }
+
 }

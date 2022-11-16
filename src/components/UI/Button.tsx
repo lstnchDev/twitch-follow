@@ -1,14 +1,18 @@
+import { FC } from 'react'
 import styles from './css/button.module.scss'
 
-interface IButton{
+type IButton = {
     title: string,
-    onClick: React.MouseEventHandler,
+    onClick: React.MouseEventHandler<HTMLButtonElement>,
+    nameClass?: string,
+    customClass?: boolean
+    
 }
 
-const Button = ({title, onClick}: IButton)=>{
+const Button : FC<IButton> = ({title, onClick, nameClass, customClass = false})=>{
     return (
         <button onClick={onClick}
-            className={styles.button}>
+            className={customClass ? nameClass : styles.buttonComp }>
             {title}
         </button>   
      )

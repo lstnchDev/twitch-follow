@@ -12,7 +12,6 @@ const initialState = {
 }
 
 export const usersReducer = (state = initialState, action: AnyAction)=>{
-    console.log(state)
 
     switch(action.type){
         case GET_USER:
@@ -23,7 +22,6 @@ export const usersReducer = (state = initialState, action: AnyAction)=>{
             })
 
             const filterUsers =  prevArr.filter(prevUser=> prevUser.id !== users.id)
-            console.log(filterUsers, users)
             return {
                 ...state,
                 users: prevArr

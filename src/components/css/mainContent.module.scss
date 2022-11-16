@@ -4,15 +4,25 @@
         max-width: var(--wrapWidth);
         text-align: center;
         padding: 250px;
+        @media screen and (max-width: 1130px) {
+            padding: 250px 20px;
+        }
+    
     }
     ul{
-        display: flex;
         list-style-type: none;
-        flex-wrap: wrap;
-        gap: 50px;
         padding: 0;
-        justify-content: center;
-
+        .mainContent_online{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            justify-content: center;
+            padding-bottom: 50px;
+        }
+        h3{
+            
+            color: white;
+        }
      
     }
 }
