@@ -36,8 +36,6 @@ const Header: FC = ()=>{
     const loginItem = user.authUser !== undefined && user.loginState 
         ? <Login onLogoutHandler={logoutHandler} name={user.authUser.login} img={user.authUser.profile_image_url}/>
         : <Oauth2 />
-
-
     return (
         <div className={styles.header}>
             <div className={styles.header_wrapper}>
