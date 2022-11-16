@@ -20,7 +20,7 @@ const Oauth2 = ()=>{
     
     const setCookie = (name, value, options = {})=>{
         options = {
-            path: 'https://lstnchdev.github.io/twitch-follow',
+            path: 'https://lstnchdev.github.io/twitch-follow/',
             ...options
           };
           if (options.expires instanceof Date) {

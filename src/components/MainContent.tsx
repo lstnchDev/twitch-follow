@@ -49,6 +49,8 @@ const MainContent: FC = ()=>{
     const onlineFollow = useSelector((state: RootState)=> state.onlineFollowsSlice)
     const allFollow = useSelector((state: RootState)=> state.allFollowsSlices)
     
+    console.log('test')
+
     useEffect(()=>{
         if (token_id !== undefined){
 
@@ -97,7 +99,6 @@ const MainContent: FC = ()=>{
         }) : [...new Array(6)].map((_, index)=> <FollowsSkeleton key={index}/>) 
     
     //тут проблема ёпт
-    // const mainContent = autorState ? <FollowContent user_id='90901415' login='cobler82'/> : <Guest />
 
     return (
         <div className={styles.mainContent}>
